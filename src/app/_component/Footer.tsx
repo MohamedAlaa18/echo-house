@@ -6,9 +6,9 @@ function Footer() {
       <div className="mx-auto max-w-screen-xl px-4 pb-6 pt-16 sm:px-6 lg:px-8 lg:pt-24">
         <div className="grid grid-cols-1 gap-8 lg:grid-cols-3">
           <div>
-            <div className="flex align-middle justify-center gap-4 text-orange-600 sm:justify-start">
+            <div className="flex items-center justify-center gap-2 text-orange-600 sm:justify-start">
               <Image src='/logoipsum-327.svg' alt='logo' width={40} height={40} />
-              <p className="mt-3 text-xl">Echo House</p>
+              <p className="text-xl text-gray-900 dark:text-white">Echo House</p>
             </div>
 
             <p className="mt-6 max-w-md text-center leading-relaxed text-gray-500 sm:max-w-xs sm:text-left">
@@ -257,7 +257,7 @@ function Footer() {
           </div>
         </div>
 
-        <div className="mt-12 border-t border-gray-100 pt-6">
+        <div className="mt-12 border-t border-gray-100 dark:border-gray-800 pt-6">
           <div className="text-center sm:flex sm:justify-between sm:text-left">
 
             <p className="text-sm text-gray-500 flex gap-1">

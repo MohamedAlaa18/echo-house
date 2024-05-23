@@ -3,7 +3,7 @@ import axiosClient from './axiosClient';
 import { AxiosResponse } from 'axios';
 
 
-const getLatestProducts = (): Promise<AxiosResponse<Product[]>> => {
+const getRecentProducts = (): Promise<AxiosResponse<Product[]>> => {
     return axiosClient.get('/products?populate=*');
 };
 
@@ -17,7 +17,7 @@ const getProductsByCategory = (category: string): Promise<AxiosResponse<Product[
 
 // eslint-disable-next-line import/no-anonymous-default-export
 export default {
-    getLatestProducts,
+    getRecentProducts,
     getProductById,
     getProductsByCategory,
 };

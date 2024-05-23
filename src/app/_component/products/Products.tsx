@@ -1,10 +1,31 @@
-import ProductList from "./ProductList"
+"use client";
+import ProductApis from "@/app/_utils/ProductApis";
+import ProductList from "./ProductList";
+import { useEffect, useState } from "react";
+import { Product } from "@/app/types";
 
+const Products: React.FC = () => {
+  const [productList, setProductList] = useState<Product[]>([]);
 
-function Products() {
+  useEffect(() => {
+    getRecentProducts();
+  }, []);
+
+  const getRecentProducts = async () => {
+    try {
+      const res = await ProductApis.getRecentProducts();
+      setProductList(res.data.data);
+    } catch (error) {
+      console.error("Error fetching products:", error);
+    }
+  };
+
   return (
-    <div><ProductList /></div>
-  )
-}
+    <div className="2xl:px-36 px-6">
+      <h2 className="my-4 text-xl">Recent Products</h2>
+      <ProductList productList={productList} />
+    </div>
+  );
+};
 
-export default Products
+export default Products;
