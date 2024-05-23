@@ -19,8 +19,8 @@
 /* Dark Theme Variables */
 .dark {
   --foreground-rgb: 255, 255, 255;
-  --background-start-rgb: 0, 0, 0;
-  --background-end-rgb: 0, 0, 0;
+  --background-start-rgb: 17, 24, 39;
+  --background-end-rgb: 17, 24, 39;
 
   --primary-color: #FFE5B5;
   --secondary-color: #0a0d12;

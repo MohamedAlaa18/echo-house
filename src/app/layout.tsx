@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 import { Roboto } from "next/font/google";
 import { useEffect, useState } from "react";
 import "./globals.css";
-import Header from "./_component/Header";
+import Header from "./_component/header/Header";
 import Footer from "./_component/Footer";
 
 const inter = Roboto({ subsets: ["latin"], weight: "700" });

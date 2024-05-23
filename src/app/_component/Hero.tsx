@@ -18,14 +18,14 @@ function Hero() {
 
           <div className="mt-8 flex flex-wrap justify-center gap-4">
             <a
-              className="block w-full rounded border border-blue-600 bg-blue-600 px-12 py-3 text-sm font-medium text-white hover:text-blue-500 hover:bg-transparent Dark:hover:text-white focus:outline-none focus:ring active:text-opacity-75 sm:w-auto"
+              className="block w-full rounded border border-orange-600 bg-orange-600 px-12 py-3 text-sm font-medium text-white hover:text-orange-500 hover:bg-transparent Dark:hover:text-white focus:outline-none active:text-opacity-75 sm:w-auto"
               href="#"
             >
               Get Started
             </a>
 
             <a
-              className="block w-full rounded border border-blue-600 px-12 py-3 text-sm font-medium text-blue-600 dark:text-white hover:text-white hover:bg-blue-600 focus:outline-none focus:ring active:bg-blue-500 sm:w-auto"
+              className="block w-full rounded border border-orange-600 px-12 py-3 text-sm font-medium text-orange-600 dark:text-white hover:text-white hover:bg-orange-600 focus:outline-none active:bg-orange-500 sm:w-auto"
               href="#"
             >
               Learn More
