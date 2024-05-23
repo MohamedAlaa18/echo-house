@@ -2,28 +2,58 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Default Light Theme Variables */
 :root {
   --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
+  --background-start-rgb: 255, 255, 255;
   --background-end-rgb: 255, 255, 255;
+
+  --primary-color: #fe9f5b;
+  --secondary-color: #e7e8eb;
+  --tertiary-color: #FFffff;
+  --text-color: #000000;
+  --disabled-text-color: #b9bdc9;
+  --bg-color: #ffffff;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
+/* Dark Theme Variables */
+.dark {
+  --foreground-rgb: 255, 255, 255;
+  --background-start-rgb: 0, 0, 0;
+  --background-end-rgb: 0, 0, 0;
+
+  --primary-color: #FFE5B5;
+  --secondary-color: #0a0d12;
+  --tertiary-color: #ffffff;
+  --text-color: #ffffff;
+  --disabled-text-color: #31374c;
+  --bg-color: #1C2138;
+}
+
+/* Light Theme Variables (Optional, to ensure clarity) */
+.light {
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 255, 255, 255;
+  --background-end-rgb: 255, 255, 255;
+
+  --primary-color: #fe9f5b;
+  --secondary-color: #e7e8eb;
+  --tertiary-color: #FFffff;
+  --text-color: #000000;
+  --disabled-text-color: #b9bdc9;
+  --bg-color: #ffffff;
 }
 
 body {
   color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
+  background: linear-gradient(to bottom,
       transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+      rgb(var(--background-end-rgb))) rgb(var(--background-start-rgb));
+}
+
+* {
+  margin: 0;
+  padding: 0;
 }
 
 @layer utilities {
