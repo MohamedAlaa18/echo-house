@@ -3,7 +3,10 @@ import './header.scss';
 import Link from "next/link";
 import { UserButton, useUser } from "@clerk/nextjs";
 import { ShoppingCart } from "lucide-react";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
+import { CartContext } from "@/app/_context/cartContext";
+import { CartContextType } from "@/app/types";
+import CartApis from "@/app/_utils/CartApis";
 
 interface HeaderProps {
     toggleTheme: () => void;
@@ -13,10 +16,35 @@ interface HeaderProps {
 function Header({ toggleTheme, theme }: HeaderProps) {
     const [isLoginIn, setIsLoginIn] = useState(false)
     const { user } = useUser();
+    const cartContext = useContext(CartContext) as CartContextType;
+    const { cart, setCart } = cartContext;
 
     useEffect(() => {
         setIsLoginIn(window?.location?.href.toString().includes('sign-in'))
     }, [])
+
+    const getUserCartItems = () => {
+        const userEmail = user?.primaryEmailAddress?.emailAddress || '';
+
+        CartApis.getUserCartItems(userEmail).then((res: { data: { data: { id: any; attributes: { products: { data: any[]; }; }; }[]; }; }) => {
+            console.log('response from cart items', res?.data?.data)
+            res?.data?.data.forEach((cartItem: { id: any; attributes: { products: { data: any[]; }; }; }) => {
+                setCart((oldCart) => [
+                    ...oldCart,
+                    {
+                        id: cartItem.id,
+                        product: cartItem?.attributes?.products?.data[0]
+                    }
+                ])
+            })
+
+        })
+    }
+
+    useEffect(() => {
+        user && getUserCartItems();
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [user])
 
     return !isLoginIn && (
         <header className="bg-white dark:bg-gray-900">
@@ -25,7 +53,6 @@ function Header({ toggleTheme, theme }: HeaderProps) {
                     <span className="sr-only">Home</span>
                     <Image src='/logoipsum-327.svg' alt='logo' width={40} height={40} />
                 </Link>
-
                 <div className="flex flex-1 items-center justify-end md:justify-between">
                     <nav aria-label="Global" className="hidden md:block">
                         <ul className="flex items-center gap-6 text-sm">
@@ -109,7 +136,7 @@ function Header({ toggleTheme, theme }: HeaderProps) {
                         </div>
                             :
                             <div className="flex items-center gap-5">
-                                <h2 className="flex gap-1 cursor-pointer"> <ShoppingCart /> (0)</h2>
+                                <h2 className="flex gap-1 cursor-pointer"> <ShoppingCart /> ({Object.keys(cart).length})</h2>
                                 <UserButton />
                             </div>
                         }

@@ -34,7 +34,7 @@ export interface ProductAttribute {
 }
 
 export interface Product {
-    id: string;
+    id: number;
     attributes: ProductAttribute;
 }
 
@@ -60,8 +60,12 @@ export interface ProductListProps {
 
 export interface AddToCartPayload {
     data: {
-      username: string;
-      email: string;
-      product: string[]; // Adjust the type based on the actual product ID type
+        username: string | null;
+        email: string | undefined;
+        products: (number | undefined)[];
     };
-  }
+}
+export interface CartContextType {
+    cart: any[];
+    setCart: React.Dispatch<React.SetStateAction<any[]>>;
+}

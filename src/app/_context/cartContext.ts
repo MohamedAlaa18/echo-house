@@ -1,3 +1,9 @@
-import { createContext } from "react";
+import { createContext, Dispatch, SetStateAction } from "react";
 
-export const CartContext = createContext(null);
+export interface CartContextType {
+    cart: any[];
+    setCart: Dispatch<SetStateAction<any[]>>;
+}
+
+export const CartContext = createContext<CartContextType | null>(null);
+
