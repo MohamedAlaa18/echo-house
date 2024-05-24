@@ -1,5 +1,9 @@
 import Image from "next/image";
 import './header.scss';
+import Link from "next/link";
+import { UserButton, useUser } from "@clerk/nextjs";
+import { ShoppingCart } from "lucide-react";
+import { useEffect, useState } from "react";
 
 interface HeaderProps {
     toggleTheme: () => void;
@@ -7,24 +11,31 @@ interface HeaderProps {
 }
 
 function Header({ toggleTheme, theme }: HeaderProps) {
-    return (
+    const [isLoginIn, setIsLoginIn] = useState(false)
+    const { user } = useUser();
+
+    useEffect(() => {
+        setIsLoginIn(window?.location?.href.toString().includes('sign-in'))
+    }, [])
+
+    return !isLoginIn && (
         <header className="bg-white dark:bg-gray-900">
             <div className="mx-auto flex h-16 max-w-screen-xl items-center gap-8 px-4 sm:px-6 lg:px-8">
-                <a className="block text-orange-600 dark:text-orange-300" href="#">
+                <Link className="block text-orange-600 dark:text-orange-300" href="/">
                     <span className="sr-only">Home</span>
                     <Image src='/logoipsum-327.svg' alt='logo' width={40} height={40} />
-                </a>
+                </Link>
 
                 <div className="flex flex-1 items-center justify-end md:justify-between">
                     <nav aria-label="Global" className="hidden md:block">
                         <ul className="flex items-center gap-6 text-sm">
                             <li>
-                                <a
+                                <Link
                                     className="text-gray-500 transition hover:text-gray-500/75 dark:text-white dark:hover:text-white/75"
-                                    href="#"
+                                    href="/"
                                 >
                                     Home
-                                </a>
+                                </Link>
                             </li>
 
                             <li>
@@ -81,10 +92,10 @@ function Header({ toggleTheme, theme }: HeaderProps) {
                             </label>
                         </div>
 
-                        <div className="sm:flex sm:gap-4">
+                        {!user ? <div className="sm:flex sm:gap-4">
                             <a
                                 className="block rounded-md bg-orange-600 px-5 py-2.5 text-sm font-medium text-white transition hover:bg-orange-500 dark:hover:bg-orange-500"
-                                href="#"
+                                href="/sign-in"
                             >
                                 Login
                             </a>
@@ -96,6 +107,12 @@ function Header({ toggleTheme, theme }: HeaderProps) {
                                 Register
                             </a>
                         </div>
+                            :
+                            <div className="flex items-center gap-5">
+                                <h2 className="flex gap-1 cursor-pointer"> <ShoppingCart /> (0)</h2>
+                                <UserButton />
+                            </div>
+                        }
 
                         <button
                             className="block rounded bg-gray-100 p-2.5 text-gray-600 transition hover:text-gray-600/75 md:hidden dark:bg-gray-800 dark:text-white dark:hover:text-white/75"

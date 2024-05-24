@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import "./globals.css";
 import Header from "./_component/header/Header";
 import Footer from "./_component/Footer";
+import { ClerkProvider, SignInButton, SignedIn, SignedOut, UserButton } from "@clerk/nextjs";
 
 const inter = Roboto({ subsets: ["latin"], weight: "700" });
 
@@ -42,12 +43,14 @@ export default function RootLayout({
   };
 
   return (
-    <html lang="en">
-      <body className={`${inter.className} ${theme}`}>
-        <Header toggleTheme={toggleTheme} theme={theme} />
-        {children}
-        <Footer />
-      </body>
-    </html>
+    <ClerkProvider>
+      <html lang='en'>
+        <body className={`${inter.className} ${theme}`}>
+          <Header toggleTheme={toggleTheme} theme={theme} />
+          {children}
+          <Footer />
+        </body>
+      </html>
+    </ClerkProvider>
   );
 }

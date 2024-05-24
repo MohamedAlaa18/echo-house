@@ -1,7 +1,14 @@
 import Image from "next/image"
+import { useEffect, useState } from "react";
 
 function Footer() {
-  return (
+  const [isLoginIn, setIsLoginIn] = useState(false);
+
+  useEffect(() => {
+    setIsLoginIn(window?.location?.href.toString().includes('sign-in'))
+  }, [])
+
+  return !isLoginIn && (
     <footer className="bg-white dark:bg-gray-900" >
       <div className="mx-auto max-w-screen-xl px-4 pb-6 pt-16 sm:px-6 lg:px-8 lg:pt-24">
         <div className="grid grid-cols-1 gap-8 lg:grid-cols-3">

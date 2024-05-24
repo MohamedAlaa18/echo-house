@@ -4,7 +4,7 @@ import ProductList from "./ProductList";
 import { useEffect, useState } from "react";
 import { Product } from "@/app/types";
 
-const Products: React.FC = () => {
+function Products() {
   const [productList, setProductList] = useState<Product[]>([]);
 
   useEffect(() => {

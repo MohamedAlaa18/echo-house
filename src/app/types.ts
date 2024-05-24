@@ -22,6 +22,7 @@ export interface Banner {
 }
 
 export interface ProductAttribute {
+    instantDelivery: boolean;
     title: string;
     description: ProductDescription[];
     price: number;
@@ -36,3 +37,31 @@ export interface Product {
     id: string;
     attributes: ProductAttribute;
 }
+
+// The API response structure
+export interface ApiResponse<T> {
+    data: T;
+}
+
+export interface ApiError {
+    message: string;
+}
+
+// The response types for fetching products
+export type ProductItemFetch = ApiResponse<Product>;
+export type ProductsItemFetch = ApiResponse<Product[]>;
+export interface ProductItemProps {
+    product?: Product;
+}
+export interface ProductListProps {
+    productList: Product[];
+}
+
+
+export interface AddToCartPayload {
+    data: {
+      username: string;
+      email: string;
+      product: string[]; // Adjust the type based on the actual product ID type
+    };
+  }
