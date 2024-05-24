@@ -7,6 +7,7 @@ import { useContext, useEffect, useState } from "react";
 import { CartContext } from "@/app/_context/cartContext";
 import { CartContextType } from "@/app/types";
 import CartApis from "@/app/_utils/CartApis";
+import Cart from "../Cart";
 
 interface HeaderProps {
     toggleTheme: () => void;
@@ -16,6 +17,7 @@ interface HeaderProps {
 function Header({ toggleTheme, theme }: HeaderProps) {
     const [isLoginIn, setIsLoginIn] = useState(false)
     const { user } = useUser();
+    const [openCart, setOpenCart] = useState(false);
     const cartContext = useContext(CartContext) as CartContextType;
     const { cart, setCart } = cartContext;
 
@@ -136,8 +138,11 @@ function Header({ toggleTheme, theme }: HeaderProps) {
                         </div>
                             :
                             <div className="flex items-center gap-5">
-                                <h2 className="flex gap-1 cursor-pointer"> <ShoppingCart /> ({Object.keys(cart).length})</h2>
-                                <UserButton />
+                                <button className="flex gap-1 cursor-pointer" onClick={() => setOpenCart(!openCart)}>
+                                    <ShoppingCart /> ({Object.keys(cart).length})
+                                </button>
+                                <UserButton afterSignOutUrl="/" />
+                                {openCart && <Cart />}
                             </div>
                         }
 
