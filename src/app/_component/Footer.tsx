@@ -9,8 +9,8 @@ function Footer() {
   }, [])
 
   return (
-    <footer className="bg-white dark:bg-gray-900" >
-      <div className="mx-auto max-w-screen-xl px-4 pb-6 pt-16 sm:px-6 lg:px-8 lg:pt-24">
+    <footer className="bg-white dark:bg-gray-900 mt-16 border border-gray-200 dark:border-gray-700 border-x-0 border-b-0" >
+      <div className="mx-auto max-w-screen-xl px-4 pb-6 sm:px-6 lg:px-8 pt-12">
         <div className="grid grid-cols-1 gap-8 lg:grid-cols-3">
           <div>
             <div className="flex items-center justify-center gap-2 text-orange-600 sm:justify-start">

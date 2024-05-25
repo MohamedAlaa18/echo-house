@@ -23,7 +23,6 @@ function Header({ toggleTheme, theme }: HeaderProps) {
 
     useEffect(() => {
         setIsLoginIn(window?.location?.href.toString().includes('sign-in'))
-        console.log("hello")
     }, [])
 
     const getUserCartItems = () => {
@@ -50,8 +49,8 @@ function Header({ toggleTheme, theme }: HeaderProps) {
     }, [user])
 
     return (
-        <header className="bg-white dark:bg-gray-900">
-            <div className="mx-auto flex h-16 max-w-screen-xl items-center gap-8 px-4 sm:px-6 lg:px-8">
+        <header className="bg-white dark:bg-gray-900 border border-b-gray-200 dark:border-b-gray-700 border-x-0 border-t-0">
+            <div className="mx-auto flex h-16 max-w-screen-xl items-center gap-8 px-4 sm:px-6 lg:px-8 ">
                 <Link className="block text-orange-600 dark:text-orange-300" href="/">
                     <span className="sr-only">Home</span>
                     <Image src='/logoipsum-327.svg' alt='logo' width={40} height={40} />
