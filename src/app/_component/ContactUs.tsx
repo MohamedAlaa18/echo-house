@@ -75,7 +75,7 @@ function ContactUs() {
                         </p>
 
                         <div className="mt-8">
-                            <a href="#" className="text-2xl bg-gradient-to-r from-green-300 via-blue-500 to-purple-600 bg-clip-text font-extrabold text-transparent"> 0109 052 8591 - 0128 964 3240</a>
+                            {/* <a href="#" className="text-2xl bg-gradient-to-r from-green-300 via-blue-500 to-purple-600 bg-clip-text font-extrabold text-transparent"> 0109 052 8591 - 0128 964 3240</a> */}
                             <address className="mt-2 not-italic">Port-said, Egypt</address>
                         </div>
                     </div>

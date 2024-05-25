@@ -23,6 +23,7 @@ function Header({ toggleTheme, theme }: HeaderProps) {
 
     useEffect(() => {
         setIsLoginIn(window?.location?.href.toString().includes('sign-in'))
+        console.log("hello")
     }, [])
 
     const getUserCartItems = () => {
