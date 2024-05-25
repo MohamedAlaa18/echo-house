@@ -74,10 +74,10 @@ function ContactUs() {
                             At the same time, the fact that we are wholly owned and totally independent from the manufacturer and other group control gives you confidence that we will only recommend what is right for you.
                         </p>
 
-                        <div className="mt-8">
-                            {/* <a href="#" className="text-2xl bg-gradient-to-r from-green-300 via-blue-500 to-purple-600 bg-clip-text font-extrabold text-transparent"> 0109 052 8591 - 0128 964 3240</a> */}
+                        {/* <div className="mt-8">
+                            <a href="#" className="text-2xl bg-gradient-to-r from-green-300 via-blue-500 to-purple-600 bg-clip-text font-extrabold text-transparent"> 0109 052 8591 - 0128 964 3240</a>
                             <address className="mt-2 not-italic">Port-said, Egypt</address>
-                        </div>
+                        </div> */}
                     </div>
 
                     <div className="rounded-lg bg-white dark:bg-gray-900 p-8 shadow-lg dark:shadow-dark lg:col-span-3 lg:p-12">
