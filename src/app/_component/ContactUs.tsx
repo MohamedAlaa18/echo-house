@@ -134,7 +134,7 @@ function ContactUs() {
                                     <div key={index}>
                                         <label
                                             htmlFor={`Option${index + 1}`}
-                                            className={`block w-full cursor-pointer rounded-lg border border-gray-200 dark:border-gray-600 p-3 text-gray-600 dark:text-gray-100 hover:bg-orange-100 ${form.option === option ? 'bg-orange-200 dark:bg-orange-500' : ''}`}
+                                            className={`block w-full cursor-pointer rounded-lg border border-gray-200 dark:border-gray-600 p-3 text-gray-600 dark:text-gray-100 dark:hover:text-gray-600 hover:bg-orange-100 ${form.option === option ? 'bg-orange-200 dark:bg-orange-500' : ''}`}
                                             tabIndex={0}
                                         >
                                             <input
