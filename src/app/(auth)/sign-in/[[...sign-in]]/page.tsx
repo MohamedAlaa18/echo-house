@@ -6,7 +6,7 @@ export default function Page() {
 
   return (
     <section className="bg-white dark:bg-gray-900">
-      <div className="lg:grid lg:min-h-screen lg:grid-cols-12">
+      <div className="lg:grid lg:min-h-screen lg:grid-cols-12 2xl:px-36 px-6">
         <section className="relative flex h-32 items-end bg-gray-900 lg:col-span-5 lg:h-full xl:col-span-6">
           <Image
             width={1000}
