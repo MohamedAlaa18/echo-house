@@ -49,7 +49,7 @@ function Header({ toggleTheme, theme }: HeaderProps) {
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [user])
 
-    return !isLoginIn && (
+    return (
         <header className="bg-white dark:bg-gray-900">
             <div className="mx-auto flex h-16 max-w-screen-xl items-center gap-8 px-4 sm:px-6 lg:px-8">
                 <Link className="block text-orange-600 dark:text-orange-300" href="/">
