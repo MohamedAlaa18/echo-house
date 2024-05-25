@@ -2,6 +2,7 @@
 import { useState } from "react";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import sendEmail from "../_utils/sendToMail";
 
 function ContactUs() {
     const [form, setForm] = useState({ name: '', email: '', phone: '', message: '', option: '' });
@@ -13,15 +14,27 @@ function ContactUs() {
         setErrors((prev) => ({ ...prev, [name]: '' }));
     };
 
-    const handleSubmit = (e: { preventDefault: () => void; }) => {
+    const handleSubmit = (e: {
+        target: any; preventDefault: () => void;
+    }) => {
         e.preventDefault();
         const newErrors = validateForm();
         if (Object.values(newErrors).some(error => error)) {
             setErrors(newErrors);
             return;
         }
-        console.log('Form submitted:', form);
+
         toast.success('Form submitted successfully');
+
+        e.preventDefault();
+        const formData = {
+            from_name: e.target.name.value,
+            user_email: e.target.email.value,
+            type: e.target.option.value,
+            message: e.target.message.value,
+        };
+        console.log('Form submitted:', formData);
+        sendEmail(formData);
     };
 
     const validateForm = () => {
@@ -167,6 +180,7 @@ function ContactUs() {
                                     Send inquiry
                                 </button>
                             </div>
+
                         </form>
                         <ToastContainer position="top-right" autoClose={5000} hideProgressBar={false} newestOnTop={false} closeOnClick rtl={false} pauseOnFocusLoss draggable pauseOnHover />
                     </div>

@@ -10,7 +10,9 @@
   },
   "dependencies": {
     "@clerk/nextjs": "^5.1.2",
+    "@emailjs/browser": "^4.3.3",
     "@reduxjs/toolkit": "^2.2.5",
+    "emailjs-com": "^3.2.0",
     "lucide-react": "^0.379.0",
     "next": "14.2.3",
     "react": "^18",
