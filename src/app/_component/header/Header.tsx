@@ -29,7 +29,7 @@ function Header({ toggleTheme, theme }: HeaderProps) {
         const userEmail = user?.primaryEmailAddress?.emailAddress || '';
 
         CartApis.getUserCartItems(userEmail).then((res: { data: { data: { id: any; attributes: { products: { data: any[]; }; }; }[]; }; }) => {
-            console.log('response from cart items', res?.data?.data)
+            // console.log('response from cart items', res?.data?.data)
             res?.data?.data.forEach((cartItem: { id: any; attributes: { products: { data: any[]; }; }; }) => {
                 setCart((oldCart) => [
                     ...oldCart,

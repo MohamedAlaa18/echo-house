@@ -14,6 +14,8 @@
   --text-color: #000000;
   --disabled-text-color: #b9bdc9;
   --bg-color: #ffffff;
+
+  --tw-shadow:0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1)
 }
 
 /* Dark Theme Variables */
@@ -28,6 +30,8 @@
   --text-color: #ffffff;
   --disabled-text-color: #31374c;
   --bg-color: #1C2138;
+
+  --tw-shadow:0 10px 15px -3px rgb(255 255 255 / 0.1), 0 4px 6px -4px rgb(255 255 255 / 0.1)
 }
 
 /* Light Theme Variables (Optional, to ensure clarity) */
@@ -42,6 +46,8 @@
   --text-color: #000000;
   --disabled-text-color: #b9bdc9;
   --bg-color: #ffffff;
+
+  --tw-shadow:0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1)
 }
 
 body {
